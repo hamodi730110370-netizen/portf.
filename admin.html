@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>لوحة التحكم | أحمد علي زيد - إدارة وتحديث الموقع</title>
+
+    <!-- Google Fonts: Tajawal for Arabic, Outfit for English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Admin Stylesheet -->
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar Navigation -->
+        <aside class="admin-sidebar" id="adminSidebar">
+            <div class="sidebar-header">
+                <img src="assets/images/logo.png" alt="شعار أحمد علي زيد" class="sidebar-logo">
+                <div class="sidebar-brand-text">
+                    <h2>لوحة التحكم</h2>
+                    <span>أحمد علي زيد | Ahmed Ali Zaid</span>
+                </div>
+            </div>
+
+            <ul class="sidebar-menu">
+                <li>
+                    <a class="menu-item-link active" data-tab="overview">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span>نظرة عامة</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="menu-item-link" data-tab="profile">
+                        <i class="fa-solid fa-user-gear"></i>
+                        <span>الواجهة والبيانات الشخصية</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="menu-item-link" data-tab="about">
+                        <i class="fa-solid fa-id-card-clip"></i>
+                        <span>نبذة عني والإحصائيات</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="menu-item-link" data-tab="services">
+                        <i class="fa-solid fa-layer-group"></i>
+                        <span>المهارات والخدمات</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="menu-item-link" data-tab="portfolio">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <span>معرض الأعمال والمشاريع</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="menu-item-link" data-tab="contact">
+                        <i class="fa-solid fa-address-book"></i>
+                        <span>التواصل والروابط</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="menu-item-link" data-tab="messages">
+                        <i class="fa-solid fa-inbox"></i>
+                        <span>الرسائل الواردة</span>
+                        <span class="menu-badge" id="unreadMessagesBadge" style="display:none;">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="menu-item-link" data-tab="settings">
+                        <i class="fa-solid fa-sliders"></i>
+                        <span>النسخ الاحتياطي والأمان</span>
+                    </a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <div class="admin-user-info">
+                    <div class="user-avatar-badge">AZ</div>
+                    <div class="user-details">
+                        <h4>أحمد علي زيد</h4>
+                        <p>المدير المسؤول</p>
+                    </div>
+                </div>
+                <button type="button" class="btn-logout" id="logoutBtn" title="تسجيل الخروج">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Wrapper -->
+        <div class="admin-main">
+            <!-- Topbar Header -->
+            <header class="admin-topbar">
+                <div class="topbar-left">
+                    <button type="button" class="mobile-menu-trigger" id="mobileMenuTrigger" aria-label="Toggle Menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="page-breadcrumb">
+                        <h1 id="admPageTitle">نظرة عامة</h1>
+                        <p id="admPageSubtitle">إحصائيات سريعة وملخص محتويات الموقع</p>
+                    </div>
+                </div>
+
+                <div class="topbar-actions">
+                    <a href="index.html" class="btn-topbar btn-live-site" target="_blank">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        <span>عرض الموقع الرئيسي</span>
+                    </a>
+                    <button type="button" class="theme-toggle-adm" id="admThemeToggle" title="تبديل الوضع الليلي / النهاري">
+                        <i class="fa-solid fa-moon"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Content Area -->
+            <main class="admin-content">
+
+                <!-- ================= TAB 1: OVERVIEW ================= -->
+                <section class="tab-pane active" id="tab-overview">
+                    <div class="stats-overview-grid">
+                        <div class="overview-stat-box">
+                            <div class="stat-box-icon blue">
+                                <i class="fa-solid fa-layer-group"></i>
+                            </div>
+                            <div class="stat-box-info">
+                                <h4>الخدمات التدريبية والمهنية</h4>
+                                <div class="stat-number-adm" id="statCountServices">0</div>
+                            </div>
+                        </div>
+
+                        <div class="overview-stat-box">
+                            <div class="stat-box-icon purple">
+                                <i class="fa-solid fa-briefcase"></i>
+                            </div>
+                            <div class="stat-box-info">
+                                <h4>مشاريع وإنجازات المعرض</h4>
+                                <div class="stat-number-adm" id="statCountProjects">0</div>
+                            </div>
+                        </div>
+
+                        <div class="overview-stat-box">
+                            <div class="stat-box-icon green">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <div class="stat-box-info">
+                                <h4>مهارات سحابة الكلمات</h4>
+                                <div class="stat-number-adm" id="statCountSkills">0</div>
+                            </div>
+                        </div>
+
+                        <div class="overview-stat-box">
+                            <div class="stat-box-icon red">
+                                <i class="fa-solid fa-envelope-open-text"></i>
+                            </div>
+                            <div class="stat-box-info">
+                                <h4>رسائل التواصل الواردة</h4>
+                                <div class="stat-number-adm" id="statCountMessages">0</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Shortcuts and Recent Info -->
+                    <div class="adm-card">
+                        <div class="card-header-flex">
+                            <div class="card-title-group">
+                                <h3><i class="fa-solid fa-bolt"></i> روابط سريعة للتحكم المباشر</h3>
+                                <p>الوصول الفوري لتعديل وتحديث محتويات أقسام الموقع</p>
+                            </div>
+                        </div>
+                        <div style="display:flex; flex-wrap:wrap; gap:0.8rem;">
+                            <button type="button" class="btn-adm btn-adm-primary" onclick="openAddServiceModal()">
+                                <i class="fa-solid fa-plus"></i> إضافة خدمة جديدة
+                            </button>
+                            <button type="button" class="btn-adm btn-adm-secondary" onclick="openAddProjectModal()">
+                                <i class="fa-solid fa-plus"></i> إضافة مشروع جديد للمعرض
+                            </button>
+                            <button type="button" class="btn-adm btn-adm-secondary" onclick="document.querySelector('[data-tab=profile]').click()">
+                                <i class="fa-solid fa-user-pen"></i> تعديل بيانات المدرب والواجهة
+                            </button>
+                            <button type="button" class="btn-adm btn-adm-secondary" onclick="document.querySelector('[data-tab=messages]').click()">
+                                <i class="fa-solid fa-inbox"></i> فحص صندوق الرسائل
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Recent Messages Preview -->
+                    <div class="adm-card">
+                        <div class="card-header-flex">
+                            <div class="card-title-group">
+                                <h3><i class="fa-regular fa-envelope"></i> أحدث الرسائل المستلمة</h3>
+                                <p>الرسائل المباشرة المرسلة من نموذج التواصل في الموقع</p>
+                            </div>
+                            <button type="button" class="btn-adm btn-adm-secondary btn-adm-sm" onclick="document.querySelector('[data-tab=messages]').click()">
+                                عرض الكل
+                            </button>
+                        </div>
+                        <div id="overviewRecentMessages">
+                            <!-- Injected dynamically -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= TAB 2: PROFILE & HERO ================= -->
+                <section class="tab-pane" id="tab-profile">
+                    <form id="saveProfileForm">
+                        <div class="adm-card">
+                            <div class="card-header-flex">
+                                <div class="card-title-group">
+                                    <h3><i class="fa-solid fa-user-tag"></i> اسم المدرب والهوية البصرية</h3>
+                                    <p>الاسم الرسمي للمدرب بالعربية والإنجليزية والمسميات التي تظهر في رأس الصفحة والواجهة</p>
+                                </div>
+                            </div>
+
+                            <div class="form-row-2">
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="profNameAr">
+                                        <span class="badge-lang">AR</span> اسم المدرب بالعربية <span class="req">*</span>
+                                    </label>
+                                    <input type="text" id="profNameAr" class="adm-input" required placeholder="أحمد علي زيد">
+                                </div>
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="profNameEn">
+                                        <span class="badge-lang">EN</span> اسم المدرب بالإنجليزية <span class="req">*</span>
+                                    </label>
+                                    <input type="text" id="profNameEn" class="adm-input" required placeholder="Ahmed Ali Zaid">
+                                </div>
+                            </div>
+
+                            <div class="form-row-2">
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="profBrandSubAr">
+                                        <span class="badge-lang">AR</span> العنوان الفرعي أسفل الشعار
+                                    </label>
+                                    <input type="text" id="profBrandSubAr" class="adm-input" placeholder="مدرب ذكاء اصطناعي ومدير متجر">
+                                </div>
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="profBrandSubEn">
+                                        <span class="badge-lang">EN</span> العنوان الفرعي بالإنجليزية
+                                    </label>
+                                    <input type="text" id="profBrandSubEn" class="adm-input" placeholder="AI Trainer & Store Manager">
+                                </div>
+                            </div>
+
+                            <div class="form-row-2">
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="profBadgeAr">
+                                        <span class="badge-lang">AR</span> شارة الترحيب العلوية (Hero Badge)
+                                    </label>
+                                    <input type="text" id="profBadgeAr" class="adm-input" placeholder="مرحباً بك في المنصة الشخصية">
+                                </div>
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="profBadgeEn">
+                                        <span class="badge-lang">EN</span> شارة الترحيب بالإنجليزية
+                                    </label>
+                                    <input type="text" id="profBadgeEn" class="adm-input" placeholder="Welcome to my personal portfolio">
+                                </div>
+                            </div>
+
+                            <div class="form-row-2">
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="profHeroDescAr">
+                                        <span class="badge-lang">AR</span> النبذة التعريفية الرئيسية في الواجهة
+                                    </label>
+                                    <textarea id="profHeroDescAr" class="adm-textarea" rows="4"></textarea>
+                                </div>
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="profHeroDescEn">
+                                        <span class="badge-lang">EN</span> النبذة التعريفية الرئيسية بالإنجليزية
+                                    </label>
+                                    <textarea id="profHeroDescEn" class="adm-textarea" rows="4"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-actions-bar">
+                                <button type="submit" class="btn-adm btn-adm-primary">
+                                    <i class="fa-solid fa-floppy-disk"></i> حفظ تعديلات الواجهة
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Typewriter Roles Management -->
+                    <div class="adm-card">
+                        <div class="card-header-flex">
+                            <div class="card-title-group">
+                                <h3><i class="fa-solid fa-i-cursor"></i> المسميات الوظيفية المتحركة (Typewriter Effect)</h3>
+                                <p>المسميات التي تتبدل تلقائياً بتأثير الآلة الكاتبة في واجهة الموقع</p>
+                            </div>
+                        </div>
+
+                        <div class="interactive-items-list" id="typewriterRolesList">
+                            <!-- Injected dynamically -->
+                        </div>
+
+                        <div style="background:var(--adm-bg-subtle); padding:1rem; border-radius:var(--adm-radius-md); border:1px solid var(--adm-border);">
+                            <h4 style="font-size:0.9rem; margin-bottom:0.75rem; color:var(--adm-text-main);">
+                                <i class="fa-solid fa-plus-circle" style="color:var(--adm-accent);"></i> إضافة مسمى وظيفي جديد
+                            </h4>
+                            <div class="form-row-2" style="margin-bottom:0.7rem;">
+                                <input type="text" id="newRoleAr" class="adm-input" placeholder="المسمى بالعربية (مثال: مدرب ذكاء اصطناعي)">
+                                <input type="text" id="newRoleEn" class="adm-input" placeholder="المسمى بالإنجليزية (مثال: AI Trainer & Consultant)">
+                            </div>
+                            <button type="button" class="btn-adm btn-adm-secondary btn-adm-sm" id="addRoleBtn">
+                                <i class="fa-solid fa-plus"></i> إضافة المسمى
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= TAB 3: ABOUT & STATS ================= -->
+                <section class="tab-pane" id="tab-about">
+                    <form id="saveAboutForm">
+                        <div class="adm-card">
+                            <div class="card-header-flex">
+                                <div class="card-title-group">
+                                    <h3><i class="fa-solid fa-circle-info"></i> قسم نبذة عني (About Me)</h3>
+                                    <p>العناوين والنصوص التعريفية في قسم نبذة عن المدرب أحمد علي زيد</p>
+                                </div>
+                            </div>
+
+                            <div class="form-row-2">
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="aboutTagAr"><span class="badge-lang">AR</span> وسم القسم (Section Tag)</label>
+                                    <input type="text" id="aboutTagAr" class="adm-input" placeholder="تعرف علي">
+                                </div>
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="aboutTagEn"><span class="badge-lang">EN</span> وسم القسم بالإنجليزية</label>
+                                    <input type="text" id="aboutTagEn" class="adm-input" placeholder="Discover My Journey">
+                                </div>
+                            </div>
+
+                            <div class="form-row-2">
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="aboutTitleAr"><span class="badge-lang">AR</span> عنوان القسم الرئيسي</label>
+                                    <input type="text" id="aboutTitleAr" class="adm-input" placeholder="نبذة عني">
+                                </div>
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="aboutTitleEn"><span class="badge-lang">EN</span> عنوان القسم بالإنجليزية</label>
+                                    <input type="text" id="aboutTitleEn" class="adm-input" placeholder="About Me">
+                                </div>
+                            </div>
+
+                            <div class="form-row-2">
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="aboutHeadingAr"><span class="badge-lang">AR</span> عنوان بطاقة الخبرة والرؤية</label>
+                                    <input type="text" id="aboutHeadingAr" class="adm-input" placeholder="الرؤية والخبرة">
+                                </div>
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="aboutHeadingEn"><span class="badge-lang">EN</span> عنوان البطاقة بالإنجليزية</label>
+                                    <input type="text" id="aboutHeadingEn" class="adm-input" placeholder="Vision & Leadership">
+                                </div>
+                            </div>
+
+                            <div class="form-row-2">
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="aboutP1Ar"><span class="badge-lang">AR</span> الفقرة التعريفية الأولى</label>
+                                    <textarea id="aboutP1Ar" class="adm-textarea" rows="4"></textarea>
+                                </div>
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="aboutP1En"><span class="badge-lang">EN</span> الفقرة الأولى بالإنجليزية</label>
+                                    <textarea id="aboutP1En" class="adm-textarea" rows="4"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-row-2">
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="aboutP2Ar"><span class="badge-lang">AR</span> الفقرة التعريفية الثانية</label>
+                                    <textarea id="aboutP2Ar" class="adm-textarea" rows="3"></textarea>
+                                </div>
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="aboutP2En"><span class="badge-lang">EN</span> الفقرة الثانية بالإنجليزية</label>
+                                    <textarea id="aboutP2En" class="adm-textarea" rows="3"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-actions-bar">
+                                <button type="submit" class="btn-adm btn-adm-primary">
+                                    <i class="fa-solid fa-floppy-disk"></i> حفظ نصوص النبذة
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Checklist Items Management -->
+                    <div class="adm-card">
+                        <div class="card-header-flex">
+                            <div class="card-title-group">
+                                <h3><i class="fa-solid fa-list-check"></i> نقاط التميز والمهام (Checklist Items)</h3>
+                                <p>إضافة وحذف النقاط المرجعية في بطاقة النبذة الشخصية</p>
+                            </div>
+                        </div>
+
+                        <div class="interactive-items-list" id="checklistItemsList">
+                            <!-- Injected dynamically -->
+                        </div>
+
+                        <div style="background:var(--adm-bg-subtle); padding:1rem; border-radius:var(--adm-radius-md); border:1px solid var(--adm-border);">
+                            <h4 style="font-size:0.9rem; margin-bottom:0.75rem; color:var(--adm-text-main);">
+                                <i class="fa-solid fa-plus-circle" style="color:var(--adm-accent);"></i> إضافة نقطة تميز جديدة
+                            </h4>
+                            <div class="form-row-2" style="margin-bottom:0.7rem;">
+                                <input type="text" id="newChecklistAr" class="adm-input" placeholder="النص بالعربية">
+                                <input type="text" id="newChecklistEn" class="adm-input" placeholder="النص بالإنجليزية">
+                            </div>
+                            <button type="button" class="btn-adm btn-adm-secondary btn-adm-sm" id="addChecklistBtn">
+                                <i class="fa-solid fa-plus"></i> إضافة النقطة
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Statistics / Counters Management -->
+                    <div class="adm-card">
+                        <div class="card-header-flex">
+                            <div class="card-title-group">
+                                <h3><i class="fa-solid fa-chart-simple"></i> عدادات الإنجاز والأرقام (Impact Counters)</h3>
+                                <p>التحكم في الأرقام والإحصائيات وتسمياتها</p>
+                            </div>
+                        </div>
+
+                        <div class="interactive-items-list" id="countersItemsList">
+                            <!-- Injected dynamically -->
+                        </div>
+
+                        <div style="background:var(--adm-bg-subtle); padding:1rem; border-radius:var(--adm-radius-md); border:1px solid var(--adm-border);">
+                            <h4 style="font-size:0.9rem; margin-bottom:0.75rem; color:var(--adm-text-main);">
+                                <i class="fa-solid fa-plus-circle" style="color:var(--adm-accent);"></i> إضافة عداد إنجاز جديد
+                            </h4>
+                            <div class="form-row-3" style="margin-bottom:0.7rem;">
+                                <input type="number" id="newCounterNumber" class="adm-input" placeholder="الرقم المستهدف (مثال: 50)">
+                                <input type="text" id="newCounterSuffix" class="adm-input" value="+" placeholder="اللاحقة (مثال: + أو %)">
+                                <input type="text" id="newCounterLabelAr" class="adm-input" placeholder="العنوان بالعربية (مثال: مشروع منجز)">
+                            </div>
+                            <div class="adm-form-group" style="margin-bottom:0.7rem;">
+                                <input type="text" id="newCounterLabelEn" class="adm-input" placeholder="العنوان بالإنجليزية (مثال: Completed Projects)">
+                            </div>
+                            <button type="button" class="btn-adm btn-adm-secondary btn-adm-sm" id="addCounterBtn">
+                                <i class="fa-solid fa-plus"></i> إضافة العداد
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= TAB 4: SERVICES & SKILLS ================= -->
+                <section class="tab-pane" id="tab-services">
+                    <div class="adm-card">
+                        <div class="card-header-flex">
+                            <div class="card-title-group">
+                                <h3><i class="fa-solid fa-hand-holding-hand"></i> المهارات والخدمات المقدمة</h3>
+                                <p>إضافة وتعديل وحذف الخدمات الأساسية للمدرب أحمد علي زيد</p>
+                            </div>
+                            <button type="button" class="btn-adm btn-adm-primary" onclick="openAddServiceModal()">
+                                <i class="fa-solid fa-plus"></i> إضافة خدمة جديدة
+                            </button>
+                        </div>
+
+                        <div class="dynamic-cards-grid" id="servicesCardsGrid">
+                            <!-- Injected dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Skills Cloud Section -->
+                    <div class="adm-card">
+                        <div class="card-header-flex">
+                            <div class="card-title-group">
+                                <h3><i class="fa-solid fa-tags"></i> سحابة المهارات والأدوات (Skills Cloud)</h3>
+                                <p>الكلمات الدلالية وأدوات الذكاء الاصطناعي وإدارة المتاجر (اضغط على علامة × لحذف أي مهارة)</p>
+                            </div>
+                        </div>
+
+                        <div class="skills-badge-editor-box" id="skillsCloudBadges">
+                            <!-- Injected dynamically -->
+                        </div>
+
+                        <div class="add-tag-inline-form">
+                            <input type="text" id="newSkillInput" class="adm-input" placeholder="اسم المهارة أو الأداة (مثال: Claude AI / SEO)">
+                            <button type="button" class="btn-adm btn-adm-primary" id="addSkillBtn">
+                                <i class="fa-solid fa-plus"></i> إضافة
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= TAB 5: PORTFOLIO ================= -->
+                <section class="tab-pane" id="tab-portfolio">
+                    <div class="adm-card">
+                        <div class="card-header-flex">
+                            <div class="card-title-group">
+                                <h3><i class="fa-solid fa-laptop-file"></i> معرض الأعمال والمبادرات المنجزة</h3>
+                                <p>إضافة وتعديل وحذف مشاريع التدريب، أتمتة المتاجر، والتطوير الأكاديمي</p>
+                            </div>
+                            <button type="button" class="btn-adm btn-adm-primary" onclick="openAddProjectModal()">
+                                <i class="fa-solid fa-plus"></i> إضافة مشروع جديد
+                            </button>
+                        </div>
+
+                        <div class="dynamic-cards-grid" id="projectsCardsGrid">
+                            <!-- Injected dynamically -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= TAB 6: CONTACT & SOCIAL ================= -->
+                <section class="tab-pane" id="tab-contact">
+                    <form id="saveContactForm">
+                        <div class="adm-card">
+                            <div class="card-header-flex">
+                                <div class="card-title-group">
+                                    <h3><i class="fa-solid fa-address-card"></i> قنوات التواصل الرسمية</h3>
+                                    <p>البريد الإلكتروني، رقم الواتساب المباشر، وتفاصيل المقر والنشاط</p>
+                                </div>
+                            </div>
+
+                            <div class="form-row-2">
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="contactEmail"><i class="fa-solid fa-envelope"></i> البريد الإلكتروني الرسمي</label>
+                                    <input type="email" id="contactEmail" class="adm-input" placeholder="info@nounart.com">
+                                </div>
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="contactWhatsApp"><i class="fa-brands fa-whatsapp"></i> رقم الواتساب المباشر (مع مفتاح الدولة)</label>
+                                    <input type="text" id="contactWhatsApp" class="adm-input" placeholder="+966500000000">
+                                </div>
+                            </div>
+
+                            <div class="adm-form-group">
+                                <label class="adm-label" for="contactWaDisplay">نص الشرح الظاهر أسفل الواتساب</label>
+                                <input type="text" id="contactWaDisplay" class="adm-input" placeholder="تواصل فوري ومباشر">
+                            </div>
+
+                            <div class="form-row-2">
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="contactLocationAr"><span class="badge-lang">AR</span> المقر والنشاط بالعربية</label>
+                                    <input type="text" id="contactLocationAr" class="adm-input" placeholder="متجر نون آرت - متاح للعمل والتدريب عن بعد وحضورياً">
+                                </div>
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="contactLocationEn"><span class="badge-lang">EN</span> المقر والنشاط بالإنجليزية</label>
+                                    <input type="text" id="contactLocationEn" class="adm-input" placeholder="Noun Art Store - Available for remote & on-site engagements">
+                                </div>
+                            </div>
+
+                            <div class="card-header-flex" style="margin-top:1.5rem;">
+                                <div class="card-title-group">
+                                    <h3><i class="fa-solid fa-share-nodes"></i> روابط منصات التواصل الاجتماعي</h3>
+                                    <p>حسابات المدرب أحمد علي زيد الرسمية على المنصات</p>
+                                </div>
+                            </div>
+
+                            <div class="form-row-2">
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="socialLinkedin"><i class="fa-brands fa-linkedin"></i> رابط لينكد إن (LinkedIn)</label>
+                                    <input type="url" id="socialLinkedin" class="adm-input" placeholder="https://linkedin.com/in/username">
+                                </div>
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="socialTwitter"><i class="fa-brands fa-x-twitter"></i> رابط منصة إكس (Twitter/X)</label>
+                                    <input type="url" id="socialTwitter" class="adm-input" placeholder="https://x.com/username">
+                                </div>
+                            </div>
+
+                            <div class="form-row-2">
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="socialGithub"><i class="fa-brands fa-github"></i> رابط جيت هاب (GitHub)</label>
+                                    <input type="url" id="socialGithub" class="adm-input" placeholder="https://github.com/username">
+                                </div>
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="socialInstagram"><i class="fa-brands fa-instagram"></i> رابط إنستغرام (Instagram)</label>
+                                    <input type="url" id="socialInstagram" class="adm-input" placeholder="https://instagram.com/username">
+                                </div>
+                            </div>
+
+                            <div class="form-actions-bar">
+                                <button type="submit" class="btn-adm btn-adm-primary">
+                                    <i class="fa-solid fa-floppy-disk"></i> حفظ معلومات التواصل والشبكات
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- ================= TAB 7: MESSAGES INBOX ================= -->
+                <section class="tab-pane" id="tab-messages">
+                    <div class="adm-card">
+                        <div class="card-header-flex">
+                            <div class="card-title-group">
+                                <h3><i class="fa-solid fa-inbox"></i> صندوق الرسائل المستلمة</h3>
+                                <p>رسائل واستفسارات الزوار الواردة عبر نموذج تواصل بنا في الموقع</p>
+                            </div>
+                        </div>
+
+                        <div class="messages-table-wrapper">
+                            <table class="adm-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 50px;">الحالة</th>
+                                        <th>المرسل</th>
+                                        <th>البريد الإلكتروني</th>
+                                        <th>الموضوع</th>
+                                        <th>التاريخ</th>
+                                        <th style="width: 100px;">إجراءات</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="messagesTableBody">
+                                    <!-- Injected dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================= TAB 8: SETTINGS & BACKUP ================= -->
+                <section class="tab-pane" id="tab-settings">
+                    <!-- PIN Management -->
+                    <div class="adm-card">
+                        <div class="card-header-flex">
+                            <div class="card-title-group">
+                                <h3><i class="fa-solid fa-lock"></i> تغيير رمز مرور لوحة التحكم (Security PIN)</h3>
+                                <p>تعيين رمز مرور جديد لحماية لوحة التحكم (الرمز الافتراضي الحالي: admin123)</p>
+                            </div>
+                        </div>
+
+                        <form id="updatePinForm" style="max-width: 550px;">
+                            <div class="adm-form-group">
+                                <label class="adm-label" for="curPin">رمز المرور الحالي</label>
+                                <input type="password" id="curPin" class="adm-input" required placeholder="أدخل الرمز الحالي">
+                            </div>
+                            <div class="form-row-2">
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="newPin">رمز المرور الجديد</label>
+                                    <input type="password" id="newPin" class="adm-input" required placeholder="4 أحرف/أرقام على الأقل">
+                                </div>
+                                <div class="adm-form-group">
+                                    <label class="adm-label" for="confirmPin">تأكيد الرمز الجديد</label>
+                                    <input type="password" id="confirmPin" class="adm-input" required placeholder="أعد كتابة الرمز">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-adm btn-adm-primary">
+                                <i class="fa-solid fa-key"></i> تحديث رمز المرور
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Backup & Restore -->
+                    <div class="adm-card">
+                        <div class="card-header-flex">
+                            <div class="card-title-group">
+                                <h3><i class="fa-solid fa-database"></i> النسخ الاحتياطي واستعادة البيانات</h3>
+                                <p>حفظ نسخة كاملة من بيانات الموقع وتعديلاته في ملف JSON، أو استيراد نسخة محفوظة مسبقاً</p>
+                            </div>
+                        </div>
+
+                        <div style="display:flex; flex-wrap:wrap; gap:1.2rem; align-items:center;">
+                            <div>
+                                <button type="button" class="btn-adm btn-adm-success" id="exportDataBtn">
+                                    <i class="fa-solid fa-download"></i> تصدير نسخة احتياطية (Export JSON)
+                                </button>
+                                <div class="form-help">تحميل ملف يحتوي على جميع الخدمات، المشاريع، والنصوص</div>
+                            </div>
+
+                            <div>
+                                <label class="btn-adm btn-adm-secondary" style="margin:0; cursor:pointer;">
+                                    <i class="fa-solid fa-upload"></i> استيراد نسخة احتياطية (Import JSON)
+                                    <input type="file" id="importFileInput" accept=".json" style="display:none;">
+                                </label>
+                                <div class="form-help">استرجاع بيانات موقعك من ملف JSON سابق</div>
+                            </div>
+                        </div>
+
+                        <hr style="border:none; border-top:1px solid var(--adm-border); margin:2rem 0;">
+
+                        <!-- Reset Defaults -->
+                        <div>
+                            <h4 style="color:var(--adm-danger); font-size:1rem; margin-bottom:0.4rem;">
+                                <i class="fa-solid fa-triangle-exclamation"></i> استعادة البيانات الافتراضية
+                            </h4>
+                            <p style="font-size:0.85rem; color:var(--adm-text-muted); margin-bottom:1rem;">
+                                يقوم هذا الخيار بإعادة تهيئة الموقع إلى البيانات الأصلية الأولى للمدرب أحمد علي زيد.
+                            </p>
+                            <button type="button" class="btn-adm btn-adm-danger" id="resetDefaultsBtn">
+                                <i class="fa-solid fa-rotate-left"></i> استعادة البيانات الأصلية الافتراضية
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- ================= MODALS ================= -->
+
+    <!-- PIN Authentication Modal -->
+    <div class="adm-modal-backdrop" id="pinModal">
+        <div class="adm-modal-box" style="max-width: 440px; text-align: center;">
+            <div class="modal-body" style="padding: 2.5rem 2rem;">
+                <div style="width: 64px; height: 64px; border-radius: 50%; background: var(--adm-accent-soft); color: var(--adm-accent); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 1.2rem;">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h3 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 0.4rem; color: var(--adm-text-main);">
+                    لوحة التحكم المحمية
+                </h3>
+                <p style="font-size: 0.85rem; color: var(--adm-text-muted); margin-bottom: 1.5rem;">
+                    يرجى إدخال رمز المرور للدخول والتعديل على أقسام الموقع.<br>
+                    <span style="font-weight: 600; color: var(--adm-accent);">الرمز الافتراضي: admin123</span>
+                </p>
+
+                <div class="adm-form-group" style="text-align: right;">
+                    <label class="adm-label" for="adminPinInput">رمز المرور (PIN):</label>
+                    <input type="password" id="adminPinInput" class="adm-input" placeholder="أدخل رمز المرور..." autofocus>
+                    <div id="pinError" style="color: var(--adm-danger); font-size: 0.8rem; margin-top: 0.4rem;"></div>
+                </div>
+
+                <button type="button" class="btn-adm btn-adm-primary" id="pinSubmitBtn" style="width: 100%; margin-top: 0.8rem; padding: 0.85rem;">
+                    <i class="fa-solid fa-unlock"></i> فتح لوحة التحكم
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Add/Edit Modal -->
+    <div class="adm-modal-backdrop" id="serviceModal">
+        <div class="adm-modal-box">
+            <div class="modal-header">
+                <h3 id="serviceModalTitle">إضافة خدمة جديدة</h3>
+                <button type="button" class="modal-close-btn" onclick="closeServiceModal()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <form id="serviceForm">
+                <div class="modal-body">
+                    <div class="form-row-2">
+                        <div class="adm-form-group">
+                            <label class="adm-label" for="servTitleAr"><span class="badge-lang">AR</span> عنوان الخدمة بالعربية <span class="req">*</span></label>
+                            <input type="text" id="servTitleAr" class="adm-input" required placeholder="تدريب واستشارات الذكاء الاصطناعي">
+                        </div>
+                        <div class="adm-form-group">
+                            <label class="adm-label" for="servTitleEn"><span class="badge-lang">EN</span> عنوان الخدمة بالإنجليزية</label>
+                            <input type="text" id="servTitleEn" class="adm-input" placeholder="AI Training & Consulting">
+                        </div>
+                    </div>
+
+                    <div class="form-row-2">
+                        <div class="adm-form-group">
+                            <label class="adm-label" for="servIcon">أيقونة FontAwesome</label>
+                            <div style="display:flex; gap:0.5rem; align-items:center;">
+                                <input type="text" id="servIcon" class="adm-input" value="fa-solid fa-robot" placeholder="fa-solid fa-robot">
+                                <div style="width:42px; height:42px; border-radius:8px; background:var(--adm-accent-soft); color:var(--adm-accent); display:flex; align-items:center; justify-content:center; font-size:1.2rem;">
+                                    <i id="servIconPreview" class="fa-solid fa-robot"></i>
+                                </div>
+                            </div>
+                            <div class="form-help">أمثلة: fa-solid fa-robot, fa-solid fa-shop, fa-solid fa-code, fa-solid fa-brain</div>
+                        </div>
+
+                        <div class="adm-form-group" style="display:flex; flex-direction:column; justify-content:center;">
+                            <label class="adm-label" style="cursor:pointer; display:flex; align-items:center; gap:0.6rem; margin-top:1rem;">
+                                <input type="checkbox" id="servFeatured" style="width:18px; height:18px;">
+                                <span>تمييز هذه الخدمة كـ <strong>"الأكثر طلباً"</strong></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-row-2">
+                        <div class="adm-form-group">
+                            <label class="adm-label" for="servDescAr"><span class="badge-lang">AR</span> وصف الخدمة بالعربية</label>
+                            <textarea id="servDescAr" class="adm-textarea" rows="3"></textarea>
+                        </div>
+                        <div class="adm-form-group">
+                            <label class="adm-label" for="servDescEn"><span class="badge-lang">EN</span> وصف الخدمة بالإنجليزية</label>
+                            <textarea id="servDescEn" class="adm-textarea" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-row-2">
+                        <div class="adm-form-group">
+                            <label class="adm-label" for="servPointsAr">نقاط ومميزات الخدمة (سطر لكل نقطة) - بالعربية</label>
+                            <textarea id="servPointsAr" class="adm-textarea" rows="3" placeholder="تحسين قمع المبيعات&#10;بناء هوية بصرية&#10;خدمة العملاء"></textarea>
+                        </div>
+                        <div class="adm-form-group">
+                            <label class="adm-label" for="servPointsEn">نقاط ومميزات الخدمة - بالإنجليزية</label>
+                            <textarea id="servPointsEn" class="adm-textarea" rows="3" placeholder="Point 1&#10;Point 2&#10;Point 3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-adm btn-adm-secondary" onclick="closeServiceModal()">إلغاء</button>
+                    <button type="submit" class="btn-adm btn-adm-primary">
+                        <i class="fa-solid fa-check"></i> حفظ الخدمة
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Project Add/Edit Modal -->
+    <div class="adm-modal-backdrop" id="projectModal">
+        <div class="adm-modal-box">
+            <div class="modal-header">
+                <h3 id="projectModalTitle">إضافة مشروع جديد</h3>
+                <button type="button" class="modal-close-btn" onclick="closeProjectModal()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <form id="projectForm">
+                <div class="modal-body">
+                    <div class="form-row-2">
+                        <div class="adm-form-group">
+                            <label class="adm-label" for="projTitleAr"><span class="badge-lang">AR</span> عنوان المشروع بالعربية <span class="req">*</span></label>
+                            <input type="text" id="projTitleAr" class="adm-input" required placeholder="برنامج تدريب أدوات الذكاء الاصطناعي">
+                        </div>
+                        <div class="adm-form-group">
+                            <label class="adm-label" for="projTitleEn"><span class="badge-lang">EN</span> عنوان المشروع بالإنجليزية</label>
+                            <input type="text" id="projTitleEn" class="adm-input" placeholder="Applied AI Workforce Training Program">
+                        </div>
+                    </div>
+
+                    <div class="form-row-2">
+                        <div class="adm-form-group">
+                            <label class="adm-label" for="projCategory">تصنيف المشروع <span class="req">*</span></label>
+                            <select id="projCategory" class="adm-select">
+                                <option value="ai">الذكاء الاصطناعي (AI)</option>
+                                <option value="ecommerce">متجر نون آرت (E-Commerce)</option>
+                                <option value="cs">قسم الحاسوب (Computer Science)</option>
+                            </select>
+                        </div>
+                        <div class="adm-form-group">
+                            <label class="adm-label" for="projIcon">أيقونة المشروع</label>
+                            <div style="display:flex; gap:0.5rem; align-items:center;">
+                                <input type="text" id="projIcon" class="adm-input" value="fa-solid fa-microchip" placeholder="fa-solid fa-microchip">
+                                <div style="width:42px; height:42px; border-radius:8px; background:var(--adm-accent-soft); color:var(--adm-accent); display:flex; align-items:center; justify-content:center; font-size:1.2rem;">
+                                    <i id="projIconPreview" class="fa-solid fa-microchip"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row-2">
+                        <div class="adm-form-group">
+                            <label class="adm-label" for="projDescAr"><span class="badge-lang">AR</span> وصف المشروع بالعربية</label>
+                            <textarea id="projDescAr" class="adm-textarea" rows="3"></textarea>
+                        </div>
+                        <div class="adm-form-group">
+                            <label class="adm-label" for="projDescEn"><span class="badge-lang">EN</span> وصف المشروع بالإنجليزية</label>
+                            <textarea id="projDescEn" class="adm-textarea" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-row-2">
+                        <div class="adm-form-group">
+                            <label class="adm-label" for="projTags">وسوم المشروع (افصل بينها بفواصل)</label>
+                            <input type="text" id="projTags" class="adm-input" placeholder="Generative AI، ورش عمل، أتمتة الأعمال">
+                        </div>
+                        <div class="adm-form-group">
+                            <label class="adm-label" for="projLink">رابط المشروع أو الاستعراض (اختياري)</label>
+                            <input type="text" id="projLink" class="adm-input" placeholder="https://example.com أو #">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-adm btn-adm-secondary" onclick="closeProjectModal()">إلغاء</button>
+                    <button type="submit" class="btn-adm btn-adm-primary">
+                        <i class="fa-solid fa-check"></i> حفظ المشروع
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- View Message Detail Modal -->
+    <div class="adm-modal-backdrop" id="viewMessageModal">
+        <div class="adm-modal-box">
+            <div class="modal-header">
+                <h3 id="msgDetailSubject">تفاصيل الرسالة الواردة</h3>
+                <button type="button" class="modal-close-btn" onclick="closeMessageModal()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div style="background:var(--adm-bg-subtle); padding:1rem; border-radius:var(--adm-radius-md); margin-bottom:1.2rem;">
+                    <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem;">
+                        <strong style="color:var(--adm-text-main);">من: <span id="msgDetailSender" style="color:var(--adm-accent);"></span></strong>
+                        <span id="msgDetailDate" style="color:var(--adm-text-muted); font-size:0.8rem;"></span>
+                    </div>
+                </div>
+                <div style="font-size:0.95rem; line-height:1.7; white-space:pre-wrap; color:var(--adm-text-main); background:var(--adm-bg-subtle); padding:1.2rem; border-radius:var(--adm-radius-md);" id="msgDetailBody"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-adm btn-adm-secondary" onclick="closeMessageModal()">إغلاق</button>
+                <a id="msgReplyMailBtn" href="#" class="btn-adm btn-adm-primary">
+                    <i class="fa-solid fa-reply"></i> الرد عبر البريد الإلكتروني
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Scripts -->
+    <script src="js/store.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

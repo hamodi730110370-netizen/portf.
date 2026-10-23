@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Primary Meta Tags -->
+    <title data-i18n="meta_title">أحمد علي زيد | مدرب ذكاء اصطناعي - مدير متجر - رئيس قسم الحاسوب</title>
+    <meta name="title" content="أحمد علي زيد | مدرب ذكاء اصطناعي - مدير متجر - رئيس قسم الحاسوب">
+    <meta name="description"
+        content="الموقع الشخصي الرسمي للمدرب أحمد علي زيد - مدرب ومستشار في الذكاء الاصطناعي، مدير متجر نون آرت، ورئيس قسم الحاسوب.">
+
+    <!-- Google Fonts: Tajawal for Arabic, Outfit for English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="site-header" id="header">
+        <div class="container header-container">
+            <a href="#hero" class="brand-logo" aria-label="Ahmed Ali Zaid Homepage">
+                <img src="assets/images/logo.png" alt="شعار أحمد علي زيد" class="logo-img">
+                <div class="brand-text">
+                    <span class="brand-title" data-i18n="brand_name">أحمد علي زيد</span>
+                    <span class="brand-subtitle" data-i18n="brand_sub">Ahmed Ali Zaid</span>
+                </div>
+            </a>
+
+            <!-- Navigation Menu -->
+            <nav class="main-nav" id="mainNav">
+                <ul class="nav-list">
+                    <li><a href="#hero" class="nav-link active" data-i18n="nav_home">الرئيسية</a></li>
+                    <li><a href="#about" class="nav-link" data-i18n="nav_about">نبذة عني</a></li>
+                    <li><a href="#services" class="nav-link" data-i18n="nav_services">المهارات والخدمات</a></li>
+                    <li><a href="#portfolio" class="nav-link" data-i18n="nav_portfolio">معرض أعمال</a></li>
+                    <li><a href="#contact" class="nav-link" data-i18n="nav_contact">تواصل بنا</a></li>
+                    <li>
+                        <a href="admin.html" class="nav-link nav-admin-link" data-i18n="nav_admin" title="لوحة التحكم">
+                            <i class="fa-solid fa-gauge-high"></i> لوحة التحكم
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Actions: Language, Theme & Admin Switchers -->
+            <div class="header-actions">
+                <!-- Admin Dashboard Quick Button -->
+                <a href="admin.html" class="action-btn admin-quick-btn" id="headerAdminBtn" title="لوحة التحكم للتعديل والإضافة والحذف" aria-label="لوحة التحكم">
+                    <i class="fa-solid fa-sliders"></i>
+                </a>
+
+                <!-- Theme Toggle Button -->
+                <button class="action-btn theme-toggle" id="themeToggle" aria-label="Toggle Theme" title="تبديل الوضع">
+                    <i class="fa-solid fa-moon theme-icon"></i>
+                </button>
+
+                <!-- Language Toggle Button -->
+                <button class="action-btn lang-toggle" id="langToggle" aria-label="Switch Language"
+                    title="Change Language">
+                    <i class="fa-solid fa-globe"></i>
+                    <span class="lang-text" id="langText">EN</span>
+                </button>
+
+                <!-- Mobile Menu Hamburger -->
+                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section" id="hero">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="badge-dot"></span>
+                        <span data-i18n="hero_badge">مرحباً بك في المنصة الشخصية</span>
+                    </div>
+                    <h1 class="hero-title">
+                        <span data-i18n="hero_greeting">أنا</span>
+                        <span class="highlight-text" data-i18n="hero_name">أحمد علي زيد</span>
+                    </h1>
+
+                    <!-- Dynamic Typewriter Text -->
+                    <div class="typewriter-box">
+                        <span class="typewriter-prefix" data-i18n="hero_role_prefix">بصفتي</span>
+                        <span class="typewriter-text" id="typewriter"></span>
+                        <span class="typewriter-cursor">|</span>
+                    </div>
+
+                    <p class="hero-description" data-i18n="hero_desc">
+                        أجمع بين شغف قيادة المتاجر الإلكترونية وتطويرها، ونقل أحدث مهارات وأدوات الذكاء الاصطناعي
+                        للمحترفين، إلى جانب الإشراف الأكاديمي والتقني كرئيس لقسم الحاسوب لصناعة أثر حقيقي ومستدام.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <span data-i18n="btn_contact">تواصل بنا</span>
+                            <i class="fa-solid fa-arrow-left btn-icon"></i>
+                        </a>
+                        <a href="#portfolio" class="btn btn-secondary">
+                            <span data-i18n="btn_work">استكشف الأعمال</span>
+                            <i class="fa-solid fa-briefcase"></i>
+                        </a>
+                    </div>
+
+                    <!-- Quick Highlights (Injected Dynamically from Store) -->
+                    <div class="hero-highlights" id="heroHighlights">
+                        <!-- Dynamic Highlights -->
+                    </div>
+                </div>
+
+                <!-- Hero Visual Graphic -->
+                <div class="hero-visual">
+                    <div class="visual-glow"></div>
+                    <div class="logo-card-wrapper">
+                        <div class="logo-showcase-card">
+                            <img src="assets/images/logo.png" alt="شعار أحمد علي زيد" class="visual-logo">
+                            <div class="card-glow-edge"></div>
+                        </div>
+                        <!-- Floating Badge 1 -->
+                        <div class="floating-badge badge-top-right">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <span data-i18n="badge_ai">ذكاء اصطناعي</span>
+                        </div>
+                        <!-- Floating Badge 2 -->
+                        <div class="floating-badge badge-bottom-left">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span data-i18n="badge_growth">نمو متجر رقمي</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section class="section about-section" id="about">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" data-i18n="tag_about">تعرف علي</span>
+                    <h2 class="section-title" data-i18n="title_about">نبذة عني</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="about-icon-box">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <h3 data-i18n="about_heading">الرؤية والخبرة</h3>
+                        <p class="about-text" data-i18n="about_p1">
+                            مرحباً بكم. أنا <strong>أحمد علي زيد</strong>، أعمل في تقاطع استراتيجي يجمع بين ريادة الأعمال الرقمية من خلال <strong>إدارة
+                                متجر نون آرت</strong>، والتعليم التكنولوجي المتقدم عبر <strong>رئاسة قسم
+                                الحاسوب</strong>، وتمكين الكفاءات كـ <strong>مدرب معتمد في الذكاء الاصطناعي</strong>.
+                        </p>
+                        <p class="about-text" data-i18n="about_p2">
+                            أؤمن بأن دمج أدوات الذكاء الاصطناعي والحلول الرقمية مع الإدارة الاحترافية يخلق فرص نمو
+                            استثنائية للمشاريع والمؤسسات والطلاب على حدٍ سواء.
+                        </p>
+
+                        <!-- Checklist (Injected Dynamically from Store) -->
+                        <div class="about-checklist" id="aboutChecklist">
+                            <!-- Dynamic Checklist -->
+                        </div>
+                    </div>
+
+                    <!-- Statistics / Impact Counters (Injected Dynamically from Store) -->
+                    <div class="stats-column" id="statsColumn">
+                        <!-- Dynamic Counters -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills & Services Section -->
+        <section class="section services-section" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" data-i18n="tag_services">ماذا أقدم؟</span>
+                    <h2 class="section-title" data-i18n="title_services">المهارات والخدمات</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <!-- Services Grid (Injected Dynamically from Store) -->
+                <div class="services-grid" id="servicesGrid">
+                    <!-- Dynamic Services -->
+                </div>
+
+                <!-- Skills Tags Cloud (Injected Dynamically from Store) -->
+                <div class="skills-cloud-box">
+                    <h4 class="skills-cloud-title" data-i18n="skills_cloud_title">أبرز مجالات الخبرة والأدوات</h4>
+                    <div class="tags-container" id="skillsTagsContainer">
+                        <!-- Dynamic Skill Tags -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="section portfolio-section" id="portfolio">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" data-i18n="tag_portfolio">نماذج وإنجازات</span>
+                    <h2 class="section-title" data-i18n="title_portfolio">معرض الأعمال</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <!-- Filter Controls (Injected Dynamically from Store) -->
+                <div class="portfolio-filters" id="portfolioFilters">
+                    <!-- Dynamic Filter Buttons -->
+                </div>
+
+                <!-- Portfolio Grid (Injected Dynamically from Store) -->
+                <div class="portfolio-grid" id="portfolioGrid">
+                    <!-- Dynamic Projects -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section contact-section" id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" data-i18n="tag_contact">ابقَ على اتصال</span>
+                    <h2 class="section-title" data-i18n="title_contact">تواصل بنا</h2>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Contact Information Column -->
+                    <div class="contact-info-panel">
+                        <h3 class="contact-info-heading" data-i18n="contact_heading">يسعدني دائماً تواصلكم</h3>
+                        <p class="contact-info-desc" data-i18n="contact_p">
+                            سواء كنت ترغب في استشارة حول إدارة وتطوير متجر، أو إقامة دورة تدريبية في أدوات الذكاء
+                            الاصطناعي، أو تعاون أكاديمي وتقني، أنا متاح للنقاش.
+                        </p>
+
+                        <div class="contact-cards-list">
+                            <a href="mailto:info@nounart.com" id="contactEmailLink" class="contact-info-card">
+                                <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                                <div>
+                                    <h4 data-i18n="c_email_title">البريد الإلكتروني</h4>
+                                    <p id="contactEmailText">info@nounart.com</p>
+                                </div>
+                            </a>
+
+                            <a href="https://wa.me/" id="contactWaLink" target="_blank" rel="noopener noreferrer"
+                                class="contact-info-card">
+                                <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                                <div>
+                                    <h4 data-i18n="c_wa_title">واتساب مباشر</h4>
+                                    <p id="contactWaText" data-i18n="c_wa_desc">تواصل فوري ومباشر</p>
+                                </div>
+                            </a>
+
+                            <div class="contact-info-card">
+                                <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                <div>
+                                    <h4 data-i18n="c_location_title">المقر والنشاط</h4>
+                                    <p id="contactLocationText" data-i18n="c_location_desc">متجر نون آرت - متاح للعمل والتدريب عن بعد وحضورياً
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Media Links -->
+                        <div class="social-links-box">
+                            <span class="social-label" data-i18n="social_follow">تابعنا على المنصات:</span>
+                            <div class="social-icons" id="socialIcons">
+                                <!-- Dynamic Social Icons -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="contact-form-panel">
+                        <form id="contactForm" class="contact-form" novalidate>
+                            <div class="form-group">
+                                <label for="senderName" data-i18n="form_name">الاسم الكامل *</label>
+                                <input type="text" id="senderName" name="name" required placeholder="أدخل اسمك الكريم"
+                                    data-i18n-ph="form_name_ph">
+                                <span class="error-msg" id="nameError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="senderEmail" data-i18n="form_email">البريد الإلكتروني *</label>
+                                <input type="email" id="senderEmail" name="email" required
+                                    placeholder="name@example.com" data-i18n-ph="form_email_ph">
+                                <span class="error-msg" id="emailError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="senderSubject" data-i18n="form_subject">موضوع الرسالة *</label>
+                                <input type="text" id="senderSubject" name="subject" required
+                                    placeholder="استشارة متجر / دورة ذكاء اصطناعي..." data-i18n-ph="form_subject_ph">
+                                <span class="error-msg" id="subjectError"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="senderMessage" data-i18n="form_message">نص الرسالة *</label>
+                                <textarea id="senderMessage" name="message" rows="5" required
+                                    placeholder="اكتب تفاصيل استفسارك أو طلبك هنا..."
+                                    data-i18n-ph="form_message_ph"></textarea>
+                                <span class="error-msg" id="messageError"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+                                <span data-i18n="form_submit">إرسال الرسالة</span>
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+
+                            <div class="form-alert" id="formAlert"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <img src="assets/images/logo.png" alt="شعار أحمد علي زيد" class="footer-logo">
+                <p class="footer-desc" data-i18n="footer_bio">
+                    إدارة التجارة الرقمية • تدريب وتمكين الذكاء الاصطناعي • قيادة التعليم التقني
+                </p>
+            </div>
+
+            <div class="footer-nav">
+                <a href="#hero" data-i18n="nav_home">الرئيسية</a>
+                <a href="#about" data-i18n="nav_about">نبذة عني</a>
+                <a href="#services" data-i18n="nav_services">المهارات والخدمات</a>
+                <a href="#portfolio" data-i18n="nav_portfolio">معرض أعمال</a>
+                <a href="#contact" data-i18n="nav_contact">تواصل بنا</a>
+                <a href="admin.html" data-i18n="nav_admin" style="color:var(--color-accent); font-weight:700;"><i class="fa-solid fa-gauge-high"></i> لوحة التحكم</a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> <span data-i18n="footer_name">أحمد علي زيد</span> (Ahmed Ali Zaid). <span
+                        data-i18n="rights_reserved">جميع الحقوق محفوظة.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Quick Admin Launcher -->
+    <a href="admin.html" class="floating-admin-launcher" title="لوحة التحكم للتعديل والإضافة والحذف">
+        <i class="fa-solid fa-sliders"></i>
+        <span data-i18n="floating_admin">لوحة التحكم</span>
+    </a>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to Top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts: Store first, then Main interactive logic -->
+    <script src="js/store.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
